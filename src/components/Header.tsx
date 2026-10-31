@@ -34,8 +34,8 @@ export function Header({ view, onChange }: HeaderProps) {
         </span>
         <div className="brand-text">
           <h1>
-            Minimax <span className="brand-accent">Lab</span>
-          </h1>
+  Minimax <span className="brand-accent">Visualizer</span>
+</h1>
           <p className="app-subtitle">Interactive AI Decision Explorer</p>
         </div>
       </div>
