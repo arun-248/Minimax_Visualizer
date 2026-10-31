@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400..650&family=JetBrains+Mono:wght@400..600&display=swap');
+
+/* ==========================================================================
+   Design tokens — Minimax Visualizer
+   Midnight navy surfaces · violet (MAX / AI / "O") · teal (MIN / you / "X")
+   Amber is reserved for the best path and winning lines.
+   ========================================================================== */
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --bg-0: #060a15;
+  --bg-1: #0a1020;
+  --surface: #101830;
+  --surface-2: #151f3d;
+  --surface-3: #1c2850;
+  --surface-sunken: #0c1328;
+
+  /* Borders */
+  --border: rgba(148, 163, 216, 0.14);
+  --border-strong: rgba(148, 163, 216, 0.28);
+
+  /* Text (all pass WCAG AA on --surface) */
+  --text: #e9edfa;
+  --text-2: #b0bad8;
+  --text-3: #8794b8;
+
+  /* Accents */
+  --violet: #a78bfa;
+  --violet-strong: #8b6cf6;
+  --violet-soft: rgba(167, 139, 250, 0.14);
+  --teal: #2dd4bf;
+  --teal-strong: #14b8a6;
+  --teal-soft: rgba(45, 212, 191, 0.13);
+  --amber: #fbbf24;
+  --amber-soft: rgba(251, 191, 36, 0.14);
+  --green: #4ade80;
+  --green-soft: rgba(74, 222, 128, 0.14);
+  --rose: #fb7185;
+  --rose-soft: rgba(251, 113, 133, 0.14);
+  --slate: #7c89ad;
+
+  /* Players */
+  --x-color: var(--teal);
+  --o-color: var(--violet);
+  --max-color: var(--violet);
+  --min-color: var(--teal);
+
+  /* Type */
+  --font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+
+  /* Shape & depth */
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+  --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  --focus-ring: 0 0 0 2px var(--bg-1), 0 0 0 4px var(--teal);
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --t-fast: 120ms;
+  --t: 200ms;
+
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg-0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background:
+    radial-gradient(1100px 600px at 12% -10%, rgba(139, 108, 246, 0.16), transparent 60%),
+    radial-gradient(900px 560px at 100% 0%, rgba(45, 212, 191, 0.09), transparent 60%),
+    var(--bg-0);
+  background-attachment: fixed;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select {
+  font-family: inherit;
+}
+
+a {
+  color: var(--teal);
+}
+
+/* Visible keyboard focus everywhere */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+::selection {
+  background: rgba(167, 139, 250, 0.35);
+}
+
+/* Slim scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface-3) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
