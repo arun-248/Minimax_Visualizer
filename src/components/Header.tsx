@@ -70,7 +70,7 @@ export function Header({ view, onChange }: HeaderProps) {
         <span className="course-chip">Foundations of AI</span>
         <a
           className="github-link"
-          href="https://github.com/pyaephyowinn/minimax-visualizer"
+          href="https://github.com/arun-248/Minimax_Visualizer"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub repository"
